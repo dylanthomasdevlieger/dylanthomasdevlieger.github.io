@@ -1,0 +1,303 @@
+.topCells {
+  border-top: 4px solid black !important;
+}
+
+.leftCells {
+  border-left: 4px solid black !important;
+}
+
+.rightCells {
+  border-right: 4px solid black !important;
+}
+
+.bottomCells {
+  border-bottom: 4px solid black !important;
+}
+
+.cell {
+  z-index: 1;
+  margin: none;
+  border-style: solid;
+  border-top: gray 1px;
+  text-align: center;
+  border-left: 0.01rem solid gray;
+  text-transform: uppercase;
+  color: transparent;
+  text-shadow: 3px 1px 1px black;
+  font-size: clamp(3.5rem, 7vw, 6.5rem);
+  text-align: bottom;
+  width: 100%;
+  padding-top: clamp(17.5px, 2.3vw, 43px);
+  height: clamp(71px, 7.3vw, 130px);
+}
+
+.cell:hover {
+  cursor: default;
+}
+
+.blackCell:hover {
+  cursor: default;
+}
+
+.blackCell {
+  background-color: black;
+  z-index: 1;
+  margin: none;
+  border-style: solid;
+  border-top: gray 1px;
+  text-align: center;
+  border-left: 0.01rem solid gray;
+  text-transform: uppercase;
+  color: transparent;
+  text-shadow: 3px 1px 1px black;
+  font-size: clamp(3.5rem, 7vw, 6.5rem);
+  text-align: bottom;
+  width: 100%;
+  padding-top: clamp(17.5px, 2.3vw, 43px);
+  height: clamp(71px, 7.3vw, 130px);
+}
+
+.container {
+  width: clamp(465px, 49vw, 870px);
+  height: clamp(459px, 48vw, 824px);
+  padding-right: clamp(4px, 2.4vw, 35px);
+  padding-bottom: clamp(4px, 1.9vw, 35px);
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 0px;
+  background-color: white;
+}
+
+.selected {
+  background-color: #70d9ff;
+  z-index: 1;
+}
+
+.cell:focus {
+  background-color: yellow;
+  outline: none;
+  z-index: 1;
+  margin: none;
+  border-style: solid;
+  border-top: gray 1px;
+  text-align: center;
+  border-left: 0.01rem solid gray;
+  text-transform: uppercase;
+  color: transparent;
+  text-shadow: 3px 1px 1px black;
+  font-size: clamp(3.5rem, 7vw, 6.5rem);
+  text-align: bottom;
+  width: 100%;
+}
+
+.blackCell:focus {
+  background-color: black;
+  z-index: 1;
+  margin: none;
+  border-style: solid;
+  border-top: gray 1px;
+  text-align: center;
+  border-left: 0.01rem solid gray;
+  text-transform: uppercase;
+  color: transparent;
+  text-shadow: 3px 1px 1px black;
+  font-size: clamp(3.5rem, 7vw, 6.5rem);
+  text-align: bottom;
+  width: 100%;
+  outline: none;
+}
+
+.left {
+  margin-left: 20px;
+}
+
+.game {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+  background-color: gray;
+}
+
+img {
+  height: 40px;
+  border-right: solid 1px;
+  padding-right: 10px;
+}
+
+#miniHeader {
+  padding-top: 100px;
+}
+
+#games {
+  z-index: 99;
+  padding-top: 20px;
+  position: fixed;
+  margin-top: -30px;
+  background-color: white;
+  font-family: Alfa Slab One;
+  width: 100%;
+  font-size: 45px;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  border-bottom: solid 1px gray;
+}
+
+#below-header {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#right {
+  position: relative;
+  margin-left: 70px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+@media only screen and (max-width: 1600px) {
+  #right {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+}
+#acrossHints {
+  margin-right: 100px;
+  color: black !important;
+  font-size: 20px !important;
+  border-right: blue !important;
+}
+
+.numLab1 {
+  position: absolute;
+  width: 2vw;
+  height: 2vw;
+  background-color: rgba(0, 0, 0, 0);
+  margin-top: 0.05rem;
+  margin-left: 0.2rem;
+  font-size: clamp(1.5rem, 2.5vw, 5rem);
+  font-family: Arial;
+  z-index: 2;
+}
+
+.numLab2 {
+  position: absolute;
+  width: 2vw;
+  height: 2vw;
+  background-color: rgba(0, 0, 0, 0);
+  margin-top: 0.05rem;
+  margin-left: clamp(6.2rem, 10.5vw, 11rem);
+  font-size: clamp(1.5rem, 2.5vw, 5rem);
+  font-family: Arial;
+  z-index: 2;
+}
+
+.numLab4 {
+  position: absolute;
+  width: 2vw;
+  height: 2vw;
+  background-color: rgba(0, 0, 0, 0);
+  margin-top: clamp(6.5rem, 10vw, 11.8rem);
+  margin-left: clamp(12.2rem, 21vw, 22.3rem);
+  font-size: clamp(1.5rem, 2.5vw, 5rem);
+  font-family: Arial;
+  z-index: 2;
+}
+
+.numLab5 {
+  position: absolute;
+  width: 2vw;
+  height: 2vw;
+  background-color: rgba(0, 0, 0, 0);
+  margin-top: clamp(6.5rem, 10vw, 11.8rem);
+  margin-left: clamp(18.3rem, 30vw, 33.5rem);
+  font-size: clamp(1.5rem, 2.5vw, 5rem);
+  font-family: Arial;
+  z-index: 2;
+}
+
+.numLab7 {
+  position: absolute;
+  width: 2vw;
+  height: 2vw;
+  background-color: rgba(0, 0, 0, 0);
+  margin-top: clamp(12.3rem, 20.5vw, 23rem);
+  margin-left: clamp(24.3rem, 40vw, 44.5rem);
+  font-size: clamp(1.5rem, 2.5vw, 5rem);
+  font-family: Arial;
+  z-index: 2;
+}
+
+.numLab3 {
+  position: absolute;
+  width: 2vw;
+  height: 2vw;
+  background-color: rgba(0, 0, 0, 0);
+  margin-top: clamp(6.5rem, 10.2vw, 11.8rem);
+  margin-left: 0.3rem;
+  font-size: clamp(1.5rem, 2.5vw, 5rem);
+  font-family: Arial;
+  z-index: 2;
+}
+
+.numLab6 {
+  position: absolute;
+  width: 2vw;
+  height: 2vw;
+  background-color: rgba(0, 0, 0, 0);
+  margin-top: clamp(12.3rem, 20.5vw, 23rem);
+  margin-left: clamp(12.2rem, 20.3vw, 22.3rem);
+  font-size: clamp(1.5rem, 2.5vw, 5rem);
+  font-family: Arial;
+  z-index: 2;
+}
+
+.numLab8 {
+  position: absolute;
+  width: 2vw;
+  height: 2vw;
+  background-color: rgba(0, 0, 0, 0);
+  margin-top: clamp(18rem, 30.7vw, 33.7rem);
+  margin-left: 0.3rem;
+  font-size: clamp(1.5rem, 2.5vw, 5rem);
+  font-family: Arial;
+  z-index: 2;
+}
+
+.numLab9 {
+  position: absolute;
+  width: 2vw;
+  height: 2vw;
+  background-color: rgba(0, 0, 0, 0);
+  margin-top: clamp(18rem, 30.7vw, 33.7rem);
+  margin-left: clamp(6.2rem, 10.5vw, 11rem);
+  font-size: clamp(1.5rem, 2.5vw, 5rem);
+  font-family: Arial;
+  z-index: 2;
+}
+
+.numLab10 {
+  position: absolute;
+  width: 2vw;
+  height: 2vw;
+  background-color: rgba(0, 0, 0, 0);
+  margin-top: clamp(23.7rem, 40.3vw, 45rem);
+  margin-left: clamp(6.2rem, 10vw, 11rem);
+  font-size: clamp(1.5rem, 2.5vw, 5rem);
+  font-family: Arial;
+  z-index: 2;
+}
+
+#miniHeader {
+  font-family: Alfa Slab One;
+}
+
+#date, #author {
+  font-family: Arial;
+}

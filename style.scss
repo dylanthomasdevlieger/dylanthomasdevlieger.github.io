@@ -1,0 +1,728 @@
+
+
+
+.topCells{
+  border-top: 4px solid black !important;
+}
+.leftCells{
+  border-left: 4px solid black !important;
+}
+.rightCells{
+  border-right: 4px solid black !important;
+}
+.bottomCells{
+   border-bottom: 4px solid black !important;
+}
+
+.cell::selection{
+  background-color: yellow;
+}
+
+.cell{
+  z-index: 1;
+  margin: none;
+  border-style: solid;
+  border-top: gray 1px;
+  text-align: center;
+  border-left: .01rem solid gray;
+  text-transform: uppercase;
+  color: transparent;
+  text-shadow: 3px 1px 1px black;
+  font-size: clamp(3.5rem, 7vw, 6.5rem);
+  text-align: bottom;
+  width: 100%;
+  padding-top: clamp(17.5px, 2.3vw, 43px);
+  height: clamp(71px, 7.3vw, 130px);
+ 
+}
+
+.cell:hover{
+  cursor: default;
+}
+.blackCell:hover{
+  cursor:default;
+}
+
+.blackCell{
+  background-color: black;
+   z-index: 1;
+  margin: none;
+  border-style: solid;
+  border-top: gray 1px;
+  text-align: center;
+  border-left: .01rem solid gray;
+  text-transform: uppercase;
+  color: transparent;
+  text-shadow: 3px 1px 1px black;
+  font-size: clamp(3.5rem, 7vw, 6.5rem);
+  text-align: bottom;
+  width: 100%;
+  padding-top: clamp(17.5px, 2.3vw, 43px);
+  height: clamp(71px, 7.3vw, 130px);
+ 
+}
+.container{
+  width:clamp(465px, 49vw, 870px);
+  height: clamp(459px, 48vw, 824px);
+  padding-bottom:clamp(4px, 1.9vw, 35px);  
+  margin-left: auto;
+  padding-right: 10px;
+  margin-right: auto; 
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr; 
+  grid-gap:0px;
+  background-color: white;
+
+}
+
+.selected{ 
+background-color: hsla(196, 100%, 72%, 1);
+  z-index: 1;
+ 
+}
+
+.cell:focus {
+  background-color: yellow;
+  outline: none;
+  z-index: 1;
+  margin: none;
+  border-style: solid;
+  border-top: gray 1px;
+  text-align: center;
+  border-left: .01rem solid gray;
+  text-transform: uppercase;
+  color: transparent;
+  text-shadow: 3px 1px 1px black;
+  font-size: clamp(3.5rem, 7vw, 6.5rem);
+  text-align: bottom;
+  width: 100%;
+
+}
+
+.blackCell:focus{
+ background-color: black;
+   z-index: 1;
+  margin: none;
+  border-style: solid;
+  border-top: gray 1px;
+  text-align: center;
+  border-left: .01rem solid gray;
+  text-transform: uppercase;
+  color: transparent;
+  text-shadow: 3px 1px 1px black;
+  font-size: clamp(3.5rem, 7vw, 6.5rem);
+  text-align: bottom;
+  width: 100%;
+  outline: none;
+}
+.left{
+margin-left: 70px;
+  
+ 
+}
+.game{
+  
+  margin-left:auto;
+  margin-right: auto;
+  margin-top: 0px;
+
+}
+
+#threeBars{
+  font-size: 40px;
+  height: 90px;
+  margin-top: 8px;
+  margin-left: 20px; 
+}
+
+#threeBars:hover{
+cursor:pointer;}
+
+#nyt-logo{
+  height: 45px;
+  margin-top: 8px;
+  margin-left: 40px;
+  border-right: solid 1px;
+  padding-right:10px;
+   }
+
+
+#games{
+  
+ left: 0;
+  z-index: 90;
+  padding-top: 40px;
+  position: fixed;
+  margin-top: -30px;
+  background-color: white;
+  font-family: Alfa Slab One;
+  width: 100%;
+  font-size: 50px;
+  display: flex;
+  flex-direction: row;
+  border-bottom: solid 1px gray;
+}
+
+
+@media (max-width: 1250px)
+{
+ #loginBtn, #subscribeBtn{
+display:none; 
+  }
+}
+
+#subscribeBtn:hover{
+  background-color: hsla(0, 0%, 20%, 1);
+  cursor: pointer;
+}
+#loginBtn:hover{
+  background-color: black;
+  color: white !important;
+  cursor: pointer;
+}
+
+#navRight{
+
+z-index:99;
+position: absolute;
+bottom:20px;
+right: 30px;
+bottom: 30px;  
+}
+#loginBtn, #subscribeBtn{ 
+ z-index:99; 
+ height:50px;
+ width:140px;
+ margin-left:20px; 
+ border-radius: 5% 5% 5% 5%;
+ border: solid 2px black;
+ font-weight: bold;
+ font-size: 16px;
+ padding-bottom: 2px; 
+}
+
+
+
+#subscribeBtn{
+background-color: black;
+color: white;
+width: 200px;  
+}
+#loginBtn{
+  background-color: white;
+  width: 150px;  
+}
+
+#below-header{
+  display: grid;
+  grid-template-columns: 1fr 1fr; 
+ 
+ 
+  }
+
+#right{ 
+  position: relative;
+  margin-left: 70px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+
+#acrossHints, #downHints{
+  margin-right: 10px;
+  margin-bottom:100px;
+  color: black !important;
+  font-size: 25px !important;
+  border-right: blue !important;
+  font-family: Roboto;
+  width:300px;
+  
+}
+#across, #down{
+  
+  font-family: Lato;
+  font-size:30px;
+  border-bottom:solid 2px hsla(200, 20%, 80%, 1);
+}
+
+
+.numLab1{
+  position: absolute;
+  width: 2vw;
+  height: 2vw;
+  background-color: hsla(0, 0%, 0%, 0);
+  margin-top: .05rem;
+  margin-left: .2rem;
+  font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+  font-family: Arial;
+  z-index: 2;
+}
+
+.numLab2{
+  position: absolute;
+  width: 2vw;
+  height: 2vw;
+  background-color: hsla(0, 0%, 0%, 0);
+  margin-top: .05rem;
+  
+  margin-left: clamp(6.2rem, 10.5vw, 11rem);
+  font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+  font-family: Arial;
+  z-index: 2;
+}
+
+.numLab4{
+  position: absolute;
+  width: 2vw;
+  height: 2vw;
+  background-color: hsla(0, 0%, 0%, 0);
+  margin-top: clamp(6.5rem, 10vw, 11.8rem);
+  margin-left: clamp(12.2rem, 20.5vw, 22.3rem);
+  font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+  font-family: Arial;
+  z-index: 2;
+}
+.numLab5{
+  position: absolute;
+  width: 2vw;
+  height: 2vw;
+  background-color: hsla(0, 0%, 0%, 0);
+  margin-top: clamp(6.5rem, 10vw, 11.8rem);
+  margin-left: clamp(18.3rem, 30vw, 33.5rem);
+  font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+  font-family: Arial;
+  z-index: 2;
+}
+.numLab7{
+  position: absolute;
+  width: 2vw;
+  height: 2vw;
+  background-color: hsla(0, 0%, 0%, 0);
+  margin-top: clamp(12.3rem, 20.5vw, 23rem);
+  margin-left: clamp(24.3rem, 40vw, 44.5rem);
+  font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+  font-family: Arial;
+  z-index: 2;
+}
+.numLab3{
+  position: absolute;
+  width: 2vw;
+  height: 2vw;
+  background-color: hsla(0, 0%, 0%, 0);
+  margin-top: clamp(6.5rem, 10.2vw, 11.8rem);
+  margin-left: .3rem;
+  font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+  font-family: Arial;
+  z-index: 2;
+}
+.numLab6{
+  position: absolute;
+  width: 2vw;
+  height: 2vw;
+  background-color: hsla(0, 0%, 0%, 0);
+  margin-top: clamp(12.3rem, 20.5vw, 23rem);
+  margin-left: clamp(12.2rem, 20.3vw, 22.3rem);
+  font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+  font-family: Arial;
+  z-index: 2;
+}
+.numLab8{
+  position: absolute;
+  width: 2vw;
+  height: 2vw;
+  background-color: hsla(0, 0%, 0%, 0);
+  margin-top: clamp(18rem, 30.7vw, 33.7rem);
+  margin-left: .3rem;
+  font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+  font-family: Arial;
+  z-index: 2;
+}
+.numLab9{
+  position: absolute;
+  width: 2vw;
+  height: 2vw;
+  background-color: hsla(0, 0%, 0%, 0);
+  margin-top: clamp(18rem, 30.7vw, 33.7rem);
+  margin-left: clamp(6.2rem, 10.5vw, 11rem);
+  font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+  font-family: Arial;
+  z-index: 2;
+  
+}
+.numLab10{
+  position: absolute;
+  width: 2vw;
+  height: 2vw;
+  background-color: hsla(0, 0%, 0%, 0);
+  margin-top: clamp(23.7rem, 40.3vw, 45rem);
+  margin-left: clamp(6.2rem, 10vw, 11rem);
+  font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+  font-family: Arial;
+  z-index: 2;
+  
+}
+
+#date, #author{
+  
+font-family: Roboto;
+}
+#miniHeader{
+    font-size: 40px;
+    font-family: Alfa Slab One;
+    margin-right: 30px;
+     display:inline-block;
+    -webkit-transform:scale(1,1.5); /* Safari and Chrome */
+    -moz-transform:scale(1,1.5); /* Firefox */
+    -ms-transform:scale(1,1.5); /* IE 9 */
+    -o-transform:scale(1,1.5); /* Opera */
+    transform:scale(1,1.5); /* W3C */
+}
+
+
+#author{
+margin-top: 10px;}
+#date{
+ margin-top: 800px;
+  font-size: 40px;
+  font-family: Abel;
+}
+#gameHeader{
+padding-top: 150px;
+}
+
+.hintLabel{
+  font-family: Lato;
+  
+}
+
+#bigLabel{
+  font-family: Roboto;
+}
+#headerHint{
+margin-left: auto;
+margin-right: auto;  
+background-color: hsla(196, 100%, 88%, 1);
+padding-bottom: 40px;  
+padding-top:40px;
+padding-left: 30px;
+padding-right: 30px; 
+width:clamp(435px, 46vw, 840px);  
+
+}
+
+#controlsNav{
+  
+  height: 80px;
+  width: 100%;
+  min-width: 900px;
+  border-top: solid 2px gray;
+  border-bottom: solid 2px gray;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.btnIcon{
+  margin-top: 20px;
+  color: hsla(196, 50%, 70%, 1);
+  background-color: transparent;
+  font-size: 35px;
+  border: transparent;
+  
+}
+
+.btnIcon:hover{
+  cursor:pointer;
+  color: hsla(196, 50%, 50%, 1);
+}
+#cog{
+ color: hsla(196, 50%, 50%, 1) !important;
+ align-self: flex-start; 
+ 
+}
+#timer{
+align-self: center;  
+font-size:25px;
+font-family: Roboto;
+  
+}
+#pause{
+  margin-top: 15px;
+  margin-left:10px;
+  margin-right:10vw;
+} 
+.toolsNavBtn{
+  background-color: white;
+  border: solid 0px;
+  height: 70px;
+  margin-bottom: 5px;
+  padding-top: 0px;
+  margin-left: 10px;
+  font-size: 23px;
+  font-family: Arial;
+  align-self: flex-end;}
+.toolsNavBtn:hover, #cog:hover, #pencil:hover{
+  background-color:hsla(0, 0%, 85%, .3)
+}
+
+#pencil{
+  margin-left: 10px;
+  padding-top: 10px;
+  margin-top: 5px;
+  padding-bottom: -5px;
+}
+
+#cog{
+  padding-top:10px;
+  padding-bottom: 10px;
+  margin-top: 10px;
+}
+#toolsNavRight{
+  display:flex;
+  flex-wrap: none;
+}
+
+#gameAndControls{
+  background-color: hsla(196, 0%, 90%, .7);
+  width: 100vw;
+  height:clamp(1200px, 70vw, 1300px);
+  z-index: 5;
+  position:absolute;
+  display:flex;
+  flex-direction: column;
+}
+
+.blank{
+display:none !important;}
+
+.popUp{
+  text-align: center;
+  width: clamp(900px, 70vw, 1200px);
+  height:800px;
+  align-self: center;
+  margin-top: 50px;
+  background-color:white;
+  z-index:7;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0px 0px 10px 10px  hsla(196, 0%, 50%, .4);
+  border-radius: 10px;
+padding-bottom:150px;  
+}
+
+.continueBtn{
+background-color: black;
+color: white;
+min-width: 300px;  
+padding-left: 50px;
+padding-right: 50px;  
+height: 90px;  
+align-self: center;
+margin-top: 30px;
+border-radius: 45px 45px 45px 45px; 
+border: solid 2px black;
+font-size: 30px;  
+color: white;
+  
+}
+.continueBtn:hover{
+  cursor:pointer;
+}
+#juegaSinCuenta{
+  color:black;
+  font-size: 30px;
+  margin-top: 20px;
+}
+
+#juegaSinCuenta:hover{
+  cursor: pointer;
+}
+
+#popUpHeader{
+  text-align: center;
+  margin-top: 300px;
+  font-size: 50px;
+  font-family: Alfa Slab One;
+  -webkit-transform:scale(1,1.5); /* Safari and Chrome */
+    -moz-transform:scale(1,1.5); /* Firefox */
+    -ms-transform:scale(1,1.5); /* IE 9 */
+    -o-transform:scale(1,1.5); /* Opera */
+    transform:scale(1,1.5); /* W3C */
+}
+
+#popUpSubHeader{
+  width: 800px;
+  margin-top: 10px;
+  font-family: Roboto;
+  font-size: 50px;
+  text-align: center;
+}
+#popUpDate{
+  font-size: 23px;
+  font-family: Arial;
+  font-weight: bold;
+}
+
+#popUpAuthor{
+  font-size: 20px;
+  font-family: Arial;
+  
+}
+.miniCrossIcon{
+  width: 7.5rem;
+  height: 7.5rem;
+  position: absolute;
+  top: 150px;
+  border-radius: 20px;
+  z-index: 6;
+  background-color: hsla(210, 50%, 50%, 1);
+  border: solid black 6px;
+  align-items: center;
+}
+
+.insideIconDiamond{
+  width:32px !important;
+  height:32px !important;
+  transform:rotate(45deg);
+  border: solid black 6px;
+  
+}
+#diamondTop{
+  background-color:white;
+  margin-top: 8px;
+  margin-left: 40px;
+}
+#diamondBottom{
+  background-color:white;
+  margin-top: 15px;
+  margin-left:40px;
+}
+#diamondLeft{
+  background-color:black;
+  margin-top: -74px;
+  margin-left: 10px;
+  
+}
+#diamondRight{
+  background-color:black;
+  margin-top: -44px;
+  margin-left: 70px;
+}
+
+.boldNum{
+font-family: Lato;
+}
+
+
+#aboutHeader{
+
+font-size: 25px;
+font-family: Lato;}
+
+.aboutParagraph{
+ 
+font-size:35px;
+font-family: Sans;
+}
+#pageBottom{
+margin-top:200px;  
+margin-left: 80px;
+margin-right:80px; 
+}
+
+#subscribeNow:link {
+      text-decoration: none;
+      color:hsla(220, 50%, 50%, 1)
+}
+
+#subscribeNow:visited {
+      text-decoration: none;
+      color:hsla(220, 50%, 50%, 1)
+}
+
+#subscribeNow:hover {
+      text-decoration: underline;
+      
+}
+
+
+#Ahint, #Chint,  #Ehint{
+  line-height: 250%;
+}
+
+#hint2, #hint3, #hint4, #hint6{
+  line-height: 250%;
+}
+
+#Ahint, #Bhint, #Chint, #Dhint, #Ehint, #hint1, #hint2, #hint3, #hint4, #hint5, #hint6{
+
+width: 100%;  
+}
+
+
+#aboutHeader{
+font-size: 25px;
+font-family: Lato;}
+
+.aboutParagraph{
+font-size:35px;
+font-family: Sans;
+}
+#pageBottom{
+margin-top:200px;  
+margin-left: 100px;
+margin-right:80px; 
+}
+
+li{
+list-style-type:none;}
+.iconListImage{
+  margin-top:20px;
+  width: 40px;
+}
+li:hover{
+  cursor:pointer;
+}
+.iconListImage:hover{
+  cursor: pointer;
+}
+
+.nyTimesGamesLinks:link {
+      text-decoration: none;
+      color:black;
+}
+
+.nytimesGamesLinks:visited {
+      text-decoration: none;
+      color:black;
+}
+
+.nytimesGamesLinks:hover {
+      text-decoration: underline !important;
+      
+}
+.nytimesGamesLinks{
+  font-size: 25px;
+  position:absolute;
+  padding-top: 30px; 
+  margin-left: 1rem;
+  font-family: Arial;
+}
+#nyTimesGamesList{
+  font-family: Lato;
+  font-size: 22px;
+}
+
+#allGames{
+  font-size: 25px;
+  position:absolute;
+  padding-top: 30px; 
+  margin-left: 0;
+  font-family: Arial;
+}
+
+#bottomLists{
+  margin-left:70px;
+}

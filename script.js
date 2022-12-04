@@ -72,7 +72,7 @@ const tabArrayDown =['A1', 'A2', 'B3', 'B4', 'C5', 'D2']
 
 const date = Date();
 
-const hintArr=['1A Greeting','3A Little brother from stranger things','6A Me and','8A Is what brings us together', '10A You and', '1D Acronym for work after school', '__ Captain', '4D Harp-like instrument', '5D Hobbits star in this', '7D Exclamatory phrase in spanish', '9D I__ what I __']
+const hintArr=['1A Greeting','3A Little brother from stranger things','6A Me and','8A Sea in Spanish + RY', '10A You and', '1D Acronym for work after school', '__ Captain', '4D Harp-like instrument', '5D Hobbits star in this', '7D Exclamatory phrase in spanish', '9D I__ what I __']
 
 class MyComponent extends React.Component{ 
   constructor(props){
@@ -1805,42 +1805,39 @@ render(){
       <div id="right">
         <div id='acrossHints'>
         <h1 id="across">ACROSS</h1>
-          <div id='Ahint'class={this.state['A']}><p1><span class='boldNum'>1</span> Greeting</p1></div>
+          <p1 id='Ahint'class={this.state['A']}><span class='boldNum'>1</span> Greeting</p1>
           <div></div>
-          <div id='Bhint' class={this.state['B']}><p1><span class='boldNum'>3</span> Little brother from Stranger Things</p1></div>
+          <p1 id='Bhint' class={this.state['B']}><span class='boldNum'>3</span> Little brother from Stranger Things</p1>
            <div></div>
-          <div id='Chint' class={this.state['C']}><p1><span class='boldNum'>6</span> Me and</p1></div>
+          <p1 id='Chint' class={this.state['C']}><span class='boldNum'>6</span> Me and</p1>
           <div></div>
-          <div id='Dhint' class={this.state['D']}><p1><span class='boldNum'>8</span> Is what brings us together</p1></div>
+          <p1 id='Dhint' class={this.state['D']}><span class='boldNum'>8</span> Sea in Spanish + RY</p1>
           <div></div>
-          <div id='Ehint' class={this.state['E']}><p1><span class='boldNum'>10</span> You and</p1></div>
-         </div>
+          <p1 id='Ehint' class={this.state['E']}><span class='boldNum'>10</span> You and</p1>
+        </div>
         <div id='downHints'>
         <h1 id='down'>DOWN</h1>
-            <div id='hint1'class={this.state['1']}><p1><span class='boldNum'>10</span> Acronym for work after school</p1></div>
+            <p1 id='1hint'class={this.state['1']}><span class='boldNum'>10</span> Acronym for work after school</p1>
           <div></div>
-          <div id='hint2' class={this.state['2']}><p1><span class='boldNum'>2</span> __ Captain </p1></div>
+          <p1 id='2hint' class={this.state['2']}><span class='boldNum'>2</span> __ Captain </p1>
            <div></div>
-          <div id='hint3' class={this.state['3']}><p1><span class='boldNum'>4</span> Harp-like instrument</p1></div>
+          <p1 id='3hint' class={this.state['3']}><span class='boldNum'>4</span> Harp-like instrument</p1>
           <div></div>
-          <div id='hint4' class={this.state['4']}><p1><span class='boldNum'>5</span> Hobbits star in this</p1> </div>
+          <p1 id='4hint' class={this.state['4']}><span class='boldNum'>5</span> Hobbits star in this </p1>
           <div></div>
-          <div id='hint5' class={this.state['5']}><p1><span class='boldNum'>7</span> Exclamatory phrase in spanish</p1></div>
+          <p1 id='5hint' class={this.state['5']}><span class='boldNum'>7</span> Exclamatory phrase in spanish</p1>
           <div></div>
-          <div id='hint6' class={this.state['6']}><p1><span class='boldNum'>9</span> I __ what I __</p1></div>
+          <p1 id='5hint' class={this.state['6']}><span class='boldNum'>9</span> I __ what I __</p1>
          </div> 
         </div>  
       </div>
-     
-     </div> 
-     <div id='pageBottom'>
+      </div> 
+      <div id='pageBottom'>
         <h1 id='aboutHeader'>ABOUT NEW YORK TIMES GAMES</h1> 
-        <p1 class='aboutParagraph'>Since the launch of The Crossword in 1942, The Times has captivated solvers by providing engaging word and logic games. In 2014, we introduced The Mini Crossword — followed by Spelling Bee, Letter Boxed, Tiles and Vertex. In early 2022, we proudly added Wordle to our collection. We strive to offer puzzles for all skill levels that everyone can enjoy playing every day.
-</p1>
-<div></div>       
-<p1 class='aboutParagraph'><a id='subscribeNow' href='#'>Subscribe now </a> for unlimited access.</p1>
-      <div></div>  
-      </div>
+        <p1 id='aboutParagraph'>Since the launch of The Crossword in 1942, The Times has captivated solvers by providing engaging word and logic games. In 2014, we introduced The Mini Crossword — followed by Spelling Bee, Letter Boxed, Tiles and Vertex. In early 2022, we proudly added Wordle to our collection. We strive to offer puzzles for all skill levels that everyone can enjoy playing every day.
+     
+Subscribe now for unlimited access.</p1>
+        </div>
     </div>
     )
   } 

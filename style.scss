@@ -1,6 +1,5 @@
 
 
-
 .topCells{
   border-top: 4px solid black !important;
 }
@@ -231,18 +230,19 @@ width: 200px;
 
 #acrossHints, #downHints{
   margin-right: 10px;
+  margin-bottom:100px;
   color: black !important;
   font-size: 25px !important;
   border-right: blue !important;
   font-family: Roboto;
   width:300px;
- 
+  line-height: 190%;
 }
-
 #across, #down{
+  
   font-family: Lato;
   font-size:30px;
-  margin-top:120px;
+  border-bottom:solid 2px hsla(200, 20%, 80%, 1);
 }
 
 
@@ -400,8 +400,7 @@ padding-top: 150px;
 }
 #headerHint{
 margin-left: auto;
-margin-right: auto;
-margin-top: 120px;  
+margin-right: auto;  
 background-color: hsla(196, 100%, 88%, 1);
 padding-bottom: 40px;  
 padding-top:40px;
@@ -412,8 +411,7 @@ width:clamp(435px, 46vw, 840px);
 }
 
 #controlsNav{
-  position: absolute;
-  left:0;
+  
   height: 80px;
   width: 100%;
   min-width: 900px;
@@ -462,11 +460,9 @@ font-family: Roboto;
   font-size: 23px;
   font-family: Arial;
   align-self: flex-end;}
-
 .toolsNavBtn:hover, #cog:hover, #pencil:hover{
   background-color:hsla(0, 0%, 85%, .3)
 }
-
 
 #pencil{
   margin-left: 10px;
@@ -486,11 +482,9 @@ font-family: Roboto;
 }
 
 #gameAndControls{
-  position:absolute;
-  left:0;
-  background-color: hsla(196, 0%, 95%, .7);
+  background-color: hsla(196, 0%, 90%, .7);
   width: 100vw;
-  height:clamp(1100px, 70vw, 1200px);
+  height:clamp(1200px, 70vw, 1300px);
   z-index: 5;
   position:absolute;
   display:flex;
@@ -652,15 +646,3 @@ margin-right:80px;
       
 }
 
-#Ahint, #Chint,  #Ehint{
-  line-height: 250%;
-}
-
-#hint2, #hint3, #hint4, #hint6{
-  line-height: 250%;
-}
-
-#Ahint, #Bhint, #Chint, #Dhint, #Ehint, #hint1, #hint2, #hint3, #hint4, #hint5, #hint6{
-
-width: 100%;  
-}

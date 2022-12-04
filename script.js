@@ -3,8 +3,34 @@ import * as ReactDOM from "https://cdn.skypack.dev/react-dom@17.0.1";
 import * as bootstrap from "https://cdn.skypack.dev/bootstrap@5.2.1";
 
 
+
+
 //create a 2 dimensional array of all the cells which gives the cellIndex and the column and row that it belongs to 
 const useRef = { React };
+
+const iconObj = {
+  'crossword': 'https://raw.githubusercontent.com/dylanthomasdevlieger/images-repo/ac7a43551fe28d016e2752d4f2fecd1971d0cdac/crossword.png',
+
+  'miniCrossword': 'https://raw.githubusercontent.com/dylanthomasdevlieger/images-repo/ac7a43551fe28d016e2752d4f2fecd1971d0cdac/miniCrossword.png',
+
+  'spellingBee': 'https://raw.githubusercontent.com/dylanthomasdevlieger/images-repo/ac7a43551fe28d016e2752d4f2fecd1971d0cdac/spellingBee.png',
+
+  'wordle': 'https://raw.githubusercontent.com/dylanthomasdevlieger/images-repo/ac7a43551fe28d016e2752d4f2fecd1971d0cdac/worlde.png',
+
+  'tiles': 'https://raw.githubusercontent.com/dylanthomasdevlieger/images-repo/ac7a43551fe28d016e2752d4f2fecd1971d0cdac/tiles.png',
+
+  'letterBoxed': 'https://raw.githubusercontent.com/dylanthomasdevlieger/images-repo/ac7a43551fe28d016e2752d4f2fecd1971d0cdac/letterBoxed.png',
+
+  'Vertex': 'https://raw.githubusercontent.com/dylanthomasdevlieger/images-repo/ac7a43551fe28d016e2752d4f2fecd1971d0cdac/Vertex.png',
+
+  'Sudoku': 'https://raw.githubusercontent.com/dylanthomasdevlieger/images-repo/ac7a43551fe28d016e2752d4f2fecd1971d0cdac/Sudoku.png' };
+
+
+const popUpContinueArr = ['blank', 'Your game is paused', 'Ready to play?', 'Continue', '', new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' }),
+'By Wyna Liu'];
+
+const initialPopUpArr = ['miniCrossIcon', 'The Mini Crossword', 'Save your progress across devices and compare times with friends', 'Create a free account', 'Play without an account', '', ''];
+
 const acceptableEntries = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 
 let alphabet = ['A', 'B', 'C', 'D', 'E'];
@@ -42,7 +68,9 @@ const tabArrayAcross = ['A1', 'B1', 'C3', 'D1', 'E2'];
 
 const tabArrayDown = ['A1', 'A2', 'B3', 'B4', 'C5', 'D2'];
 
-const hintArr = ['Hint for 1 Across', 'Hint for 2 Across', 'Hint for 3 Across', 'Hint for 4 Across', 'Hint for 5 Across', 'Hint for 1 Down', 'Hint for 2 Down', 'Hint for 3 Down', 'Hint for 4 Down', 'Hint for 5 Down', 'Hint for 6 Down'];
+const date = Date();
+
+const hintArr = ['1A Greeting', '3A Little brother from stranger things', '6A Me and', '8A Sea in Spanish + RY', '10A You and', '1D Acronym for work after school', '__ Captain', '4D Harp-like instrument', '5D Hobbits star in this', '7D Exclamatory phrase in spanish', '9D I__ what I __'];
 
 class MyComponent extends React.Component {
   constructor(props) {
@@ -57,14 +85,14 @@ class MyComponent extends React.Component {
       4: '',
       5: '',
       6: '',
-      A: '',
+      A: 'selected',
       B: '',
       C: '',
       D: '',
       E: '',
       ActiveHint: hintArr[0],
-      A1: '',
-      A2: '',
+      A1: ' ',
+      A2: ' ',
       A3: '',
       A4: '',
       A5: '',
@@ -87,16 +115,68 @@ class MyComponent extends React.Component {
       E2: '',
       E3: '',
       E4: '',
-      E5: '' };
-
+      E5: '',
+      timePassed: 0,
+      timerRunning: -1,
+      popUp: initialPopUpArr };
 
 
     this.handleClick = this.handleClick.bind(this);
     this.changeDirection = this.changeDirection.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
+
+    this.countUp = this.countUp.bind(this);
+    this.startTimer = this.startTimer.bind(this);
+    this.toggleOn = this.toggleOn.bind(this);
+    this.displayIfPlaying = this.displayIfPlaying.bind(this);
+    this.stopTimer = this.stopTimer.bind(this);
   }
 
+
+
+
+
+
+  toggleOn() {this.setState(state => ({
+      timerRunning: this.state.timerRunning * -1 }));
+  }
+
+  countUp() {
+    this.setState(state => ({
+      timePassed: this.state.timePassed + 1 }));
+
+  }
+
+  displayIfPlaying(x) {if (x == 1) {return 'blank';} else {return '';}}
+
+  startTimer() {
+    this.toggleOn();
+    this.setState(state => ({
+      popUp: popUpContinueArr }));
+
+    if (this.state.timerRunning == -1) {this.intervalId = setInterval(() => {this.countUp();}, 1000);}
+  }
+
+  stopTimer() {
+    if (this.state.timerRunning == -1) {
+      this.setState(state => ({
+        timerRunning: -1 }));
+
+    } else {
+      this.toggleOn();
+      clearInterval(this.intervalId);
+    }
+  }
+
+
   componentDidMount() {document.addEventListener("keydown", this.handleKeyPress);
+    setInterval(() => {
+
+      if (document.hasFocus()) {} else
+      {
+        this.stopTimer();
+      };
+    }, 90000);
   }
 
 
@@ -107,7 +187,7 @@ class MyComponent extends React.Component {
 
 
 
-  handleTab() {
+  handleTab(event) {
     this.setState((prevState, state) => ({
       clickCount: prevState.clickCount }));
 
@@ -145,14 +225,11 @@ class MyComponent extends React.Component {
 
 
   handleKeyPress(event) {
-
     if (event.keyCode === 9) {
       this.handleTab();
     }
     this.setState((prevState, state) => ({
       clickCount: this.state.clickCount * -1 }));
-
-
 
     //IF LEFT ARROW IS PRESSED. the handle right and then handle left is a trick to trigger an event so that the onselect function called handleClick is triggered but the selected element remains the same  
     if (event.keyCode === 37) {
@@ -174,12 +251,7 @@ class MyComponent extends React.Component {
     }
 
     //IF TAB IS PRESSED     
-    if (event.keyCode === 9) {
-      if (this.state.clickCount = 1) {
 
-      }
-
-    }
     //IF RIGHT ARROW IS PRESSED. the handle right and then handle left is a trick to trigger an event so that the onselect function called handleClick is triggered but the selected element remains the same   
     if (event.keyCode === 39) {
       if (this.state.clickCount === 1 && document.activeElement.id !== 'A2' && document.activeElement.id !== 'B4' &&
@@ -272,7 +344,7 @@ class MyComponent extends React.Component {
     if (document.activeElement.id == "A1" && event.key == 'Backspace') {
       if (this.state.clickCount === -1) {
         this.setState(state => ({
-          A1: '',
+          A1: ' ',
           clickCount: -1 }));
       } else
       {this.setState(state => ({
@@ -311,11 +383,11 @@ class MyComponent extends React.Component {
     if (document.activeElement.id == "A2" && event.key == 'Backspace') {
       if (this.state.clickCount === -1) {
         this.setState(state => ({
-          A2: '',
+          A2: ' ',
           clickCount: -1 }));
       } else
       {this.setState(state => ({
-          A2: '',
+          A2: ' ',
           clickCount: 1 }));
 
       }
@@ -1098,7 +1170,7 @@ class MyComponent extends React.Component {
       }
     }
 
-    console.log(this.state);
+
   }
 
 
@@ -1342,7 +1414,7 @@ class MyComponent extends React.Component {
             C: '',
             D: '',
             E: '',
-            ActiveHint: hintArr[8] }));}
+            ActiveHint: hintArr[10] }));}
 
 
     }
@@ -1590,7 +1662,7 @@ class MyComponent extends React.Component {
             C: '',
             D: '',
             E: '',
-            ActiveHint: hintArr[8] }));}
+            ActiveHint: hintArr[10] }));}
 
 
     }
@@ -1600,28 +1672,98 @@ class MyComponent extends React.Component {
 
   render() {
 
+
+    function formatMinutes(x) {if (x <= 9 && x !== 0) {return '0' + x.toString();
+      } else {return x;}}
+
+    function formatSeconds(x) {if (x <= 9) {return '0' + x.toString();
+      } else {return x;}}
+
+    console.log(this.state);
+
     return /*#__PURE__*/(
       React.createElement("div", null, /*#__PURE__*/
 
+      React.createElement("div", { id: "navDiv" }, /*#__PURE__*/
       React.createElement("nav", { id: "games" }, /*#__PURE__*/
-      React.createElement("div", null, /*#__PURE__*/React.createElement("img", { id: "nyt-logo", src: "https://upload.wikimedia.org/wikipedia/commons/5/5f/New_York_Times_T_icon.svg" }), /*#__PURE__*/React.createElement("label", null, " Games"))), /*#__PURE__*/
+      React.createElement("div", { id: "threeBars" }, /*#__PURE__*/React.createElement("i", { class: "fa-solid fa-bars" })), /*#__PURE__*/
+      React.createElement("div", null, /*#__PURE__*/React.createElement("img", { id: "nyt-logo", src: "https://upload.wikimedia.org/wikipedia/commons/5/5f/New_York_Times_T_icon.svg" }), /*#__PURE__*/React.createElement("label", { id: "navGamesText" }, " Games")), /*#__PURE__*/
 
 
-      React.createElement("h1", { id: "miniHeader" }, "The Mini Crossword"), /*#__PURE__*/
 
-      React.createElement("h2", { id: "date" }, "Tuesday, October 25, 2022"), /*#__PURE__*/
-      React.createElement("h3", { id: "author" }, "By Wyna Liu - Edited by Joel Fagliano"), /*#__PURE__*/
+      React.createElement("div", { id: "navRight" }, /*#__PURE__*/
+      React.createElement("button", { id: "subscribeBtn" }, " SUBSCRIBE"), /*#__PURE__*/
+      React.createElement("button", { id: "loginBtn" }, "LOG IN")))), /*#__PURE__*/
+
+
+
+
+
+      React.createElement("div", { id: "gameHeader" }, /*#__PURE__*/
+      React.createElement("p1", { id: "miniHeader" }, "The Mini Crossword"), /*#__PURE__*/
+
+      React.createElement("p2", { id: "date" }, new Date().toLocaleDateString('en-US', {
+        weekday: 'long',
+        month: 'long',
+        day: 'numeric',
+        year: 'numeric' }))), /*#__PURE__*/
+
+
+      React.createElement("h3", { id: "author" }, "By Wyna Liu"), /*#__PURE__*/
+      React.createElement("div", null, /*#__PURE__*/
+      React.createElement("div", { id: "gameAndControls", class: this.displayIfPlaying(this.state.timerRunning) }, /*#__PURE__*/
+
+      React.createElement("div", { class: "popUp" }, /*#__PURE__*/
+      React.createElement("div", { class: this.state.popUp[0] }, /*#__PURE__*/
+      React.createElement("div", { class: "insideIconDiamond", id: "diamondTop" }), /*#__PURE__*/
+      React.createElement("div", { class: "insideIconDiamond", id: "diamondBottom" }), /*#__PURE__*/
+      React.createElement("div", { class: "insideIconDiamond", id: "diamondLeft" }), /*#__PURE__*/
+      React.createElement("div", { class: "insideIconDiamond", id: "diamondRight" })), /*#__PURE__*/
+
+      React.createElement("h1", { id: "popUpHeader" }, this.state.popUp[1]), /*#__PURE__*/
+      React.createElement("h2", { id: "popUpSubHeader" }, this.state.popUp[2]), /*#__PURE__*/
+      React.createElement("button", { class: "continueBtn", onClick: this.startTimer }, this.state.popUp[3]), /*#__PURE__*/
+
+      React.createElement("a", { id: "juegaSinCuenta", href: "#", onClick: this.startTimer }, this.state.popUp[4]), /*#__PURE__*/
+      React.createElement("p1", { id: "popUpDate" }, this.state.popUp[5]), /*#__PURE__*/
+      React.createElement("p1", { id: "popUpAuthor" }, this.state.popUp[6]))), /*#__PURE__*/
+
+
+
+      React.createElement("nav", { id: "controlsNav" }, /*#__PURE__*/
+
+      React.createElement("div", { id: "toolsNavLeft" }, /*#__PURE__*/
+      React.createElement("button", { id: "cog", class: "fa fa-cog btnIcon" })), /*#__PURE__*/
+
+
+      React.createElement("div", { id: "toolsNavCenter" }, /*#__PURE__*/
+      React.createElement("label", { id: "timer" }, '   ' + formatMinutes(Math.floor(this.state.timePassed / 60)) + ':' + formatSeconds(this.state.timePassed % 60)), /*#__PURE__*/
+      React.createElement("button", { onClick: this.stopTimer, id: "pause", class: "fa fa-pause btnIcon" })), /*#__PURE__*/
+
+
+      React.createElement("div", { id: "toolsNavRight" }, /*#__PURE__*/
+      React.createElement("button", { class: "toolsNavBtn" }, "Rebus"), /*#__PURE__*/
+      React.createElement("button", { class: "toolsNavBtn" }, "Clear"), /*#__PURE__*/
+      React.createElement("button", { class: "toolsNavBtn" }, "Reveal"), /*#__PURE__*/
+      React.createElement("button", { class: "toolsNavBtn" }, "Check"), /*#__PURE__*/
+      React.createElement("i", { id: "pencil", class: "btnIcon fa-sharp fa-solid fa-pencil" }))), /*#__PURE__*/
+
+
+
+
       React.createElement("div", { id: "below-header" }, /*#__PURE__*/
 
       React.createElement("div", { class: "left" }, /*#__PURE__*/
-      React.createElement("h1", null, this.state.ActiveHint), /*#__PURE__*/
+      React.createElement("h1", { id: "headerHint" }, /*#__PURE__*/React.createElement("span", { class: "hintLabel" }, this.state.ActiveHint.slice(0, 3)), /*#__PURE__*/React.createElement("span", { id: "bigLabel" }, this.state.ActiveHint.slice(3, this.state.ActiveHint.length))), /*#__PURE__*/
 
       React.createElement("div", { class: "game" }, /*#__PURE__*/
 
 
       React.createElement("div", { class: "container" }, /*#__PURE__*/
       React.createElement("label", { class: "numLab1", id: "label1down" }, "1"), /*#__PURE__*/React.createElement("input", { id: "A1", name: "A1", value: this.state.A1, class: this.state['A'] + this.state[1] + ' cell' + ' topCells' + ' leftCells', maxlength: "1", onSelect: this.handleClick, onClick: this.changeDirection }), /*#__PURE__*/
+
       React.createElement("label", { class: "numLab2", id: "label1down" }, "2"), /*#__PURE__*/React.createElement("input", { id: "A2", value: this.state.A2, class: this.state['A'] + this.state[2] + ' cell' + ' topCells', maxlength: "1", onSelect: this.handleClick, onClick: this.changeDirection }), /*#__PURE__*/
+
       React.createElement("input", { id: "A3", value: this.state.A3, class: "blackCell topCells", value: "" }), /*#__PURE__*/
       React.createElement("input", { id: "A4", value: this.state.A4, class: "blackCell topCells", value: "" }), /*#__PURE__*/
       React.createElement("input", { id: "A5", value: this.state.A5, class: "blackCell topCells rightCells", value: "" }), /*#__PURE__*/
@@ -1629,7 +1771,9 @@ class MyComponent extends React.Component {
 
 
       React.createElement("label", { class: "numLab3", id: "label1down" }, "3"), /*#__PURE__*/React.createElement("input", { id: "B1", value: this.state.B1, class: this.state['B'] + this.state[1] + ' cell' + ' leftCells', maxlength: "1", onSelect: this.handleClick, onClick: this.changeDirection }), /*#__PURE__*/
+
       React.createElement("input", { id: "B2", value: this.state.B2, class: this.state['B'] + this.state[2] + ' cell', maxlength: "1", onSelect: this.handleClick, onClick: this.changeDirection }), /*#__PURE__*/
+
       React.createElement("label", { class: "numLab4" }, "4"), " ", /*#__PURE__*/React.createElement("input", { id: "B3", value: this.state.B3, class: this.state['B'] + this.state[3] + ' cell', maxlength: "1", onSelect: this.handleClick, onClick: this.changeDirection }), /*#__PURE__*/
       React.createElement("label", { class: "numLab5" }, "5"), /*#__PURE__*/React.createElement("input", { id: "B4", value: this.state.B4, class: this.state['B'] + this.state[4] + ' cell', maxlength: "1", onSelect: this.handleClick, onClick: this.changeDirection }), /*#__PURE__*/
       React.createElement("input", { id: "B5", value: "", class: "blackCell rightCells" }), /*#__PURE__*/
@@ -1659,31 +1803,41 @@ class MyComponent extends React.Component {
       React.createElement("div", { id: "right" }, /*#__PURE__*/
       React.createElement("div", { id: "acrossHints" }, /*#__PURE__*/
       React.createElement("h1", { id: "across" }, "ACROSS"), /*#__PURE__*/
-      React.createElement("p1", { id: "Ahint", class: this.state['A'] }, "1. Greeting"), /*#__PURE__*/
+      React.createElement("p1", { id: "Ahint", class: this.state['A'] }, /*#__PURE__*/React.createElement("span", { class: "boldNum" }, "1"), " Greeting"), /*#__PURE__*/
       React.createElement("div", null), /*#__PURE__*/
-      React.createElement("p1", { id: "Bhint", class: this.state['B'] }, "3. Little brother from Stranger Things"), /*#__PURE__*/
+      React.createElement("p1", { id: "Bhint", class: this.state['B'] }, /*#__PURE__*/React.createElement("span", { class: "boldNum" }, "3"), " Little brother from Stranger Things"), /*#__PURE__*/
       React.createElement("div", null), /*#__PURE__*/
-      React.createElement("p1", { id: "Chint", class: this.state['C'] }, "6. QRST_VWXYZ"), /*#__PURE__*/
+      React.createElement("p1", { id: "Chint", class: this.state['C'] }, /*#__PURE__*/React.createElement("span", { class: "boldNum" }, "6"), " Me and"), /*#__PURE__*/
       React.createElement("div", null), /*#__PURE__*/
-      React.createElement("p1", { id: "Dhint", class: this.state['D'] }, "8. Hint 8 Across"), /*#__PURE__*/
+      React.createElement("p1", { id: "Dhint", class: this.state['D'] }, /*#__PURE__*/React.createElement("span", { class: "boldNum" }, "8"), " Sea in Spanish + RY"), /*#__PURE__*/
       React.createElement("div", null), /*#__PURE__*/
-      React.createElement("p1", { id: "Ehint", class: this.state['E'] }, "10. Hint 10 Across")), /*#__PURE__*/
+      React.createElement("p1", { id: "Ehint", class: this.state['E'] }, /*#__PURE__*/React.createElement("span", { class: "boldNum" }, "10"), " You and")), /*#__PURE__*/
 
       React.createElement("div", { id: "downHints" }, /*#__PURE__*/
-      React.createElement("h1", null, "DOWN"), /*#__PURE__*/
-      React.createElement("p1", { id: "1hint", class: this.state['1'] }, "1. Acronym for what I was doing when I made this"), /*#__PURE__*/
+      React.createElement("h1", { id: "down" }, "DOWN"), /*#__PURE__*/
+      React.createElement("p1", { id: "1hint", class: this.state['1'] }, /*#__PURE__*/React.createElement("span", { class: "boldNum" }, "10"), " Acronym for work after school"), /*#__PURE__*/
       React.createElement("div", null), /*#__PURE__*/
-      React.createElement("p1", { id: "2hint", class: this.state['2'] }, "2. __ Captain "), /*#__PURE__*/
+      React.createElement("p1", { id: "2hint", class: this.state['2'] }, /*#__PURE__*/React.createElement("span", { class: "boldNum" }, "2"), " __ Captain "), /*#__PURE__*/
       React.createElement("div", null), /*#__PURE__*/
-      React.createElement("p1", { id: "3hint", class: this.state['3'] }, "4. Hint 3 Down"), /*#__PURE__*/
+      React.createElement("p1", { id: "3hint", class: this.state['3'] }, /*#__PURE__*/React.createElement("span", { class: "boldNum" }, "4"), " Harp-like instrument"), /*#__PURE__*/
       React.createElement("div", null), /*#__PURE__*/
-      React.createElement("p1", { id: "4hint", class: this.state['4'] }, "4. Hint 4 Down"), /*#__PURE__*/
+      React.createElement("p1", { id: "4hint", class: this.state['4'] }, /*#__PURE__*/React.createElement("span", { class: "boldNum" }, "5"), " Hobbits star in this "), /*#__PURE__*/
       React.createElement("div", null), /*#__PURE__*/
-      React.createElement("p1", { id: "5hint", class: this.state['5'] }, "5. Hint 5 Down"), /*#__PURE__*/
+      React.createElement("p1", { id: "5hint", class: this.state['5'] }, /*#__PURE__*/React.createElement("span", { class: "boldNum" }, "7"), " Exclamatory phrase in spanish"), /*#__PURE__*/
       React.createElement("div", null), /*#__PURE__*/
-      React.createElement("p1", { id: "5hint", class: this.state['6'] }, "6. Hint 6 Down"))))));
+      React.createElement("p1", { id: "5hint", class: this.state['6'] }, /*#__PURE__*/React.createElement("span", { class: "boldNum" }, "9"), " I __ what I __"))))), /*#__PURE__*/
 
 
+
+
+
+      React.createElement("div", { id: "pageBottom" }, /*#__PURE__*/
+      React.createElement("h1", { id: "aboutHeader" }, "ABOUT NEW YORK TIMES GAMES"), /*#__PURE__*/
+      React.createElement("p1", { class: "aboutParagraph" }, "Since the launch of The Crossword in 1942, The Times has captivated solvers by providing engaging word and logic games. In 2014, we introduced The Mini Crossword \u2014 followed by Spelling Bee, Letter Boxed, Tiles and Vertex. In early 2022, we proudly added Wordle to our collection. We strive to offer puzzles for all skill levels that everyone can enjoy playing every day."), /*#__PURE__*/
+
+      React.createElement("div", null), /*#__PURE__*/
+      React.createElement("p1", { class: "aboutParagraph" }, /*#__PURE__*/React.createElement("a", { id: "subscribeNow", href: "#" }, "Subscribe now "), " for unlimited access."), /*#__PURE__*/
+      React.createElement("div", null))));
 
 
 

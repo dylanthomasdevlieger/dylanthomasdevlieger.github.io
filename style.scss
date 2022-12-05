@@ -462,7 +462,8 @@ font-family: Roboto;
   font-family: Arial;
   align-self: flex-end;}
 .toolsNavBtn:hover, #cog:hover, #pencil:hover{
-  background-color:hsla(0, 0%, 85%, .3)
+  background-color:hsla(0, 0%, 85%, .3);
+  cursor: pointer;  
 }
 
 #pencil{
@@ -755,6 +756,7 @@ flex-direction: column;
 }
 
 #timesSite{
+  margin-top: 50px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -763,3 +765,6 @@ flex-direction: column;
 display:flex;  
 justify-content: center;
 }
+
+#babbelAdd:hover{
+cursor:pointer;}

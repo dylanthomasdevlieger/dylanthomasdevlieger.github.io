@@ -1818,7 +1818,7 @@ class MyComponent extends React.Component {
 
       React.createElement("div", { id: "downHints" }, /*#__PURE__*/
       React.createElement("h1", { id: "down" }, "DOWN"), /*#__PURE__*/
-      React.createElement("div", { id: "hint1", class: this.state['1'] }, /*#__PURE__*/React.createElement("p1", null, /*#__PURE__*/React.createElement("span", { class: "boldNum" }, "10"), " Acronym for work after school")), /*#__PURE__*/
+      React.createElement("div", { id: "hint1", class: this.state['1'] }, /*#__PURE__*/React.createElement("p1", null, /*#__PURE__*/React.createElement("span", { class: "boldNum" }, "1"), " Acronym for work after school")), /*#__PURE__*/
       React.createElement("div", null), /*#__PURE__*/
       React.createElement("div", { id: "hint2", class: this.state['2'] }, /*#__PURE__*/React.createElement("p1", null, /*#__PURE__*/React.createElement("span", { class: "boldNum" }, "2"), " __ Captain ")), /*#__PURE__*/
       React.createElement("div", null), /*#__PURE__*/

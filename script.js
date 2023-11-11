@@ -12,7 +12,7 @@ const crossword = 'https://raw.githubusercontent.com/dylanthomasdevlieger/images
 
 const iconObj = {
   'crossword': 'https://raw.githubusercontent.com/dylanthomasdevlieger/images-repo/ac7a43551fe28d016e2752d4f2fecd1971d0cdac/crossword.png',
-
+ 
   'miniCrossword': 'https://raw.githubusercontent.com/dylanthomasdevlieger/images-repo/ac7a43551fe28d016e2752d4f2fecd1971d0cdac/miniCrossword.png',
 
   'spellingBee': 'https://raw.githubusercontent.com/dylanthomasdevlieger/images-repo/ac7a43551fe28d016e2752d4f2fecd1971d0cdac/spellingBee.png',
@@ -72,7 +72,7 @@ const tabArrayDown = ['A1', 'A2', 'B3', 'B4', 'C5', 'D2'];
 
 const date = Date();
 
-const hintArr = ['1A Greeting', '3A Little brother from stranger things', '6A Me and', '8A Is what brinds us together', '10A You and', '1D Acronym for work after school', '__ Captain', '4D Harp-like instrument', '5D Hobbits star in this', '7D Exclamatory phrase in spanish', '9D I__ what I __'];
+const hintArr = ['1A Greeting', '3A Little brother from stranger things', '6A Me and', '8A Is what brings us together', '10A You and', '1D Acronym for work after school', '__ Captain', '4D Harp-like instrument', '5D Hobbits star in this', '7D Exclamatory phrase in spanish', '9D I__ what I __'];
 
 class MyComponent extends React.Component {
   constructor(props) {
